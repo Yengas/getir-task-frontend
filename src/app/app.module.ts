@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { RecordService } from './services/record.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListingComponent
+    ListingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
