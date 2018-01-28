@@ -43,9 +43,10 @@ $table-border-color: #e9ebec;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 2%;
+    justify-content: space-evenly;
 
     &__start{
-      width: 50%;
+      width: 25%;
 
       &__input{
         width: 100%;
@@ -53,7 +54,7 @@ $table-border-color: #e9ebec;
     }
 
     &__end{
-      width: 50%;
+      width: 25%;
 
       &__input{
         width: 100%;
