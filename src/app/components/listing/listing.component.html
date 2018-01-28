@@ -1,7 +1,7 @@
 <ng-progress></ng-progress>
 <div class="container">
-  <h1>Filters (auto refreshes)</h1>
-  <h2>{{ errorMessage }}</h2>
+  <h2>Filters (auto refreshes)</h2>
+  <h3>{{ errorMessage }}</h3>
 
   <div class="filters">
     <div class="filters__date" layout>
@@ -34,6 +34,6 @@
     </div>
   </div>
 
-  <h1>Data ({{ data.count() }} records)</h1>
+  <h2>Data ({{ data.count() }} records)</h2>
   <ng2-smart-table class="table" [settings]="settings" [source]="data"></ng2-smart-table>
 </div>

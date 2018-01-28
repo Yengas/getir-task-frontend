@@ -1,3 +1,5 @@
+$mat-gt-md: screen and (min-width: 1280px);
+
 $table-font-color: #606c71;
 $table-border-color: #e9ebec;
 
@@ -42,14 +44,16 @@ $table-border-color: #e9ebec;
 .container{
   display: flex;
   flex: 1 100%;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  padding-left: 33%;
-  padding-right: 33%;
+  @media #{$mat-gt-md} {
+    padding-left: 33%;
+    padding-right: 33%;
+  }
 }
 
 .filters{
@@ -70,7 +74,7 @@ $table-border-color: #e9ebec;
     justify-content: space-evenly;
 
     &__start{
-      width: 25%;
+      width: 33%;
 
       &__input{
         width: 100%;
@@ -78,7 +82,7 @@ $table-border-color: #e9ebec;
     }
 
     &__end{
-      width: 25%;
+      width: 33%;
 
       &__input{
         width: 100%;
