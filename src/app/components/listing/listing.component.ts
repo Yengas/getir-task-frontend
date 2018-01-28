@@ -54,15 +54,10 @@ export class ListingComponent implements OnInit {
     const {
       minCount,
       maxCount,
+      range
     } = filters;
-
-    const {
-      beginDate: { year: byear, month: bmonth, day: bday },
-      endDate: { year: eyear, month: emonth, day: eday } ,
-    } = {
-      ...{ beginDate: (filters.range && filters.range.beginDate ? filters.range.beginDate : { year: -1, month: -1, day: -1})},
-      ...{ endDate: (filters.range && filters.range.endDate ? filters.range.endDate : { year: -1, month: -1, day: -1})},
-    };
+    const { year: byear, month: bmonth, day: bday } = range && range.beginDate ? range.beginDate : { year: -1, month: -1, day: -1 };
+    const { year: eyear, month: emonth, day: eday } = range && range.endDate ? range.endDate : { year: -1, month: -1, day: -1 };
 
     return <SearchRecordRequest>{
       minCount,
