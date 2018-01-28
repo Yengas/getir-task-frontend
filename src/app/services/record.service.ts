@@ -26,9 +26,7 @@ export class SearchRecordRequest {
  * @return {any}
  */
 function objectifySearchRecordRequest(request: SearchRecordRequest): any {
-  console.log(request);
   const { startDate, endDate, minCount, maxCount } = <any>request;
-  console.log(startDate, endDate, minCount, maxCount);
 
   if (isNaN(startDate.getTime())) {
     throw new Error('Start date cant be invalid.');
@@ -61,7 +59,8 @@ function parseRecordResponse(resp: RecordResponse): Array<Record> {
     }
   }
 
-  return resp.records;
+  return resp.records
+    .map(record => ({...record, _id: { ...record._id, createdAt: new Date(record._id.createdAt) }}));
 }
 
 @Injectable()

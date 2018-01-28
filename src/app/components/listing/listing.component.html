@@ -1,3 +1,39 @@
-<p>
-  listing works!
-</p>
+<ng-progress></ng-progress>
+<div class="container">
+  <h1>Filters (auto refreshes)</h1>
+  <h2>{{ errorMessage }}</h2>
+
+  <div class="filters">
+    <div class="filters__date" layout>
+      <div class="filters__date__start">
+          <label for="startDate">Start Date:</label>
+          <input
+            type="date" id="startDate" class="filters__date__start__input"
+            [value]="filters.startDate | date:'yyyy-MM-dd'" (change)="onFilterChange('startDate', $event.target.value)" placeholder="Start date" />
+      </div>
+      <div class="filters__date__end">
+        <label for="endDate">End Date:</label>
+        <input
+          type="date" id="endDate" class="filters__date__end__input"
+          [value]="filters.endDate | date:'yyyy-MM-dd'" (change)="onFilterChange('endDate', $event.target.value);" placeholder="End date" />
+      </div>
+    </div>
+    <div class="filters__number">
+      <div class="filters__number__min">
+        <label for="minCount">Minumum Count:</label>
+        <input
+          type="number" class="filters__number__min__input" id="minCount"
+          [value]="filters.minCount" (keyup)="onFilterChange('minCount', $event.target.value)" placeholder="Min" />
+      </div>
+      <div class="filters__number__max">
+        <label for="maxCount">Maximum Count:</label>
+        <input
+          type="number" class="filters__number__max__input" id="maxCount"
+          [value]="filters.maxCount" (keyup)="onFilterChange('maxCount', $event.target.value)" placeholder="Max" />
+      </div>
+    </div>
+  </div>
+
+  <h1>Data</h1>
+  <ng2-smart-table class="table" [settings]="settings" [source]="data"></ng2-smart-table>
+</div>

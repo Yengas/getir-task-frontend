@@ -6,6 +6,6 @@ export class RecordId {
 }
 
 export class Record {
-  id: RecordId;
+  _id: RecordId;
   totalCount: number;
 }
