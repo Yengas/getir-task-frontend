@@ -4,6 +4,28 @@ $table-border-color: #e9ebec;
 :host{
   /deep/ {
 
+    ng2-smart-table{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    ng2-smart-table-pager{
+      display: flex;
+      flex: 1 100%;
+      justify-self: center;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      li{
+        margin-right: 5px;
+      }
+
+      font-weight: bold;
+    }
+
     table{
       color: $table-font-color;
       tr {
@@ -14,6 +36,8 @@ $table-border-color: #e9ebec;
     }
   }
 }
+
+
 
 .container{
   display: flex;

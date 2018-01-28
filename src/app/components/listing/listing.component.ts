@@ -20,7 +20,7 @@ export class ListingComponent implements OnInit {
   private _filter$: ReplaySubject<any> = new ReplaySubject<any>();
   filters: any = {};
 
-  data: LocalDataSource;
+  data: LocalDataSource = new LocalDataSource([]);
   settings: any = {
     columns: {
       id: {title: 'ID'},
