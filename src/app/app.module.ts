@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NgProgressModule } from 'ngx-progressbar';
+
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +24,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgProgressModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpModule,
     Ng2SmartTableModule
   ],
   providers: [RecordService],
