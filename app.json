@@ -1,0 +1,7 @@
+{
+  "name": "GetirTaskFrontend",
+  "description": "Getir Hackathon 2018 Frontend Task with Angular and Typescript.",
+  "repository": "https://github.com/yengas/getir-task-frontend",
+  "logo": "https://pbs.twimg.com/profile_images/842289357113438208/WMUd9Sbj_400x400.jpg",
+  "keywords": ["angular", "getir", "hackathon"]
+}
