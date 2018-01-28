@@ -51,17 +51,35 @@ export class ListingComponent implements OnInit {
    * Given the filters used in this component, creates search record request.
    */
   private static mapFiltersToRecordRequest(filters: any): SearchRecordRequest{
-    return <SearchRecordRequest>filters;
+    const {
+      minCount,
+      maxCount,
+    } = filters;
+
+    const {
+      beginDate: { year: byear, month: bmonth, day: bday },
+      endDate: { year: eyear, month: emonth, day: eday } ,
+    } = {
+      ...{ beginDate: (filters.range && filters.range.beginDate ? filters.range.beginDate : { year: -1, month: -1, day: -1})},
+      ...{ endDate: (filters.range && filters.range.endDate ? filters.range.endDate : { year: -1, month: -1, day: -1})},
+    };
+
+    return <SearchRecordRequest>{
+      minCount,
+      maxCount,
+      startDate: new Date(Date.UTC(byear, bmonth - 1, bday)),
+      endDate: new Date(Date.UTC(eyear, emonth - 1, eday)),
+    };
   }
 
   /**
    * For given key, tries to parse the data. parseInt may throw, call this function in observables.
    */
   private static parseFilter(key, data) {
-    if (key === 'minCount' || key === 'maxCount') {
+    if (key === 'range') {
+      return { beginDate: data.beginDate, endDate: data.endDate };
+    } else if (key === 'minCount' || key === 'maxCount') {
       return parseInt(data, 10);
-    } else if (key === 'startDate' || key === 'endDate') {
-      return new Date(data);
     }
 
     return null;
@@ -73,8 +91,7 @@ export class ListingComponent implements OnInit {
       .startWith({
         minCount: 0,
         maxCount: 0,
-        startDate: new Date('2017-01-01'),
-        endDate: new Date('2018-01-01'),
+        range: { beginDate: { year: 2017, month: 1, day: 1 }, endDate: { year: 2018, month: 1, day: 1 }}
       })
       .debounceTime(1000)
       .share();

@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,7 +27,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    MyDateRangePickerModule
   ],
   providers: [RecordService],
   bootstrap: [AppComponent]

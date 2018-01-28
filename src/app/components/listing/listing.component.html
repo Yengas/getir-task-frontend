@@ -1,21 +1,17 @@
 <ng-progress></ng-progress>
 <div class="container">
   <h2>Filters (auto refreshes)</h2>
-  <h3>{{ errorMessage }}</h3>
+  <h3 class="error">{{ errorMessage }}</h3>
 
   <div class="filters">
     <div class="filters__date" layout>
-      <div class="filters__date__start">
-          <label for="startDate">Start Date:</label>
-          <input
-            type="date" id="startDate" class="filters__date__start__input"
-            [value]="filters.startDate | date:'yyyy-MM-dd'" (change)="onFilterChange('startDate', $event.target.value)" placeholder="Start date" />
-      </div>
-      <div class="filters__date__end">
-        <label for="endDate">End Date:</label>
-        <input
-          type="date" id="endDate" class="filters__date__end__input"
-          [value]="filters.endDate | date:'yyyy-MM-dd'" (change)="onFilterChange('endDate', $event.target.value);" placeholder="End date" />
+      <div class="filters__date__dateRange">
+          <label for="dateRange">Date Range:</label>
+          <my-date-range-picker
+            type="date" id="dateRange" class="filters__date__dateRange__input"
+            placeholder="Start date - End date" [selDateRange]="filters.range"
+            (dateRangeChanged)="($event.beginEpoc !== 0 || $event.endEpoc !== 0) && onFilterChange('range', $event)">
+          </my-date-range-picker>
       </div>
     </div>
     <div class="filters__number">

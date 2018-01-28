@@ -26,7 +26,7 @@ export class SearchRecordRequest {
  * @return {any}
  */
 function objectifySearchRecordRequest(request: SearchRecordRequest): any {
-  const { startDate, endDate, minCount, maxCount } = <any>request;
+  const { startDate, endDate, minCount, maxCount } = request;
 
   if (isNaN(startDate.getTime())) {
     throw new Error('Start date cant be invalid.');
@@ -34,6 +34,10 @@ function objectifySearchRecordRequest(request: SearchRecordRequest): any {
       throw new Error('End date cant be invalid.');
   } else if (startDate.getTime() > endDate.getTime()) {
     throw new Error('Start date cant be greater than end date!');
+  } else if (minCount == null || minCount.constructor !== Number || isNaN(minCount)) {
+    throw new Error('Min count should be a valid number.');
+  } else if (maxCount == null || maxCount.constructor !== Number || isNaN(maxCount)) {
+    throw new Error('Max count should be a valid number.');
   } else if (minCount > maxCount) {
     throw new Error('Min count cant be greater than max count!');
   }

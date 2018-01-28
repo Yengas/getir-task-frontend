@@ -56,6 +56,10 @@ $table-border-color: #e9ebec;
   }
 }
 
+.error{
+  color: darkred;
+}
+
 .filters{
   display: flex;
   width: 100%;
@@ -71,18 +75,10 @@ $table-border-color: #e9ebec;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 2%;
-    justify-content: space-evenly;
+    justify-content: center;
 
-    &__start{
-      width: 33%;
-
-      &__input{
-        width: 100%;
-      }
-    }
-
-    &__end{
-      width: 33%;
+    &__dateRange{
+      width: 45%;
 
       &__input{
         width: 100%;
